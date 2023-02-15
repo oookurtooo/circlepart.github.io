@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div><img src="./image.png" alt="" srcset=""></div>
+    
+    <div>
+        <label for="inputA">a:</label>
+        <input type="text" name="inputA" id="inputA">
+        мм
+    </div>
+
+    <div>
+        <label for="inputB">b:</label>
+        <input type="text" name="inputB" id="inputB">
+        мм
+    </div>
+
+    <div>
+        <h3 id="resultLabel"></h3>
+    </div>
+    
+    <input type="button" value="Давай рахуй" id="runBtn">
+</body>
+<script>
+    const inputA = document.getElementById("inputA");
+    const inputB = document.getElementById("inputB");
+    const runBtn = document.getElementById("runBtn");
+    const resultLabel = document.getElementById("resultLabel");
+
+    function run()
+    {
+        let a = parseFloat(inputA.value);
+        let b = parseFloat(inputB.value);
+
+        // step 1
+        let x = Math.sqrt((a/2)**2 + b**2);
+        console.log("x: ", x);
+
+        // step 2
+        let cosA = b / x;
+        console.log("cosA: ", cosA);
+
+        // step 3
+        let result = (x/2) / cosA;
+
+        resultLabel.innerText = "R = " + result;
+
+        console.log(result);
+    }
+
+    runBtn.onclick = run;
+</script>
+</html>
